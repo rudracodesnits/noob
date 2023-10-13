@@ -6,7 +6,6 @@ int main() {
     printf("Enter the number of days: ");
     scanf("%d", &days);
 
-    // Calculating years, months, weeks, and remaining days
     years = days / 365;
     days = days % 365;
     months = days / 30;
@@ -14,7 +13,6 @@ int main() {
     weeks = days / 7;
     days = days % 7;
 
-    // Displaying the result
     printf("Years: %d\n", years);
     printf("Months: %d\n", months);
     printf("Weeks: %d\n", weeks);

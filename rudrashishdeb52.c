@@ -1,55 +1,39 @@
 #include <stdio.h>
-
-#define MAX_SIZE 100
-
-void transposeArray(int array[][MAX_SIZE], int rows, int cols, int transposedArray[][MAX_SIZE]) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            transposedArray[j][i] = array[i][j];
-        }
-    }
-}
-
-void printArray(int array[][MAX_SIZE], int rows, int cols) {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%d ", array[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 int main() {
-    int array[MAX_SIZE][MAX_SIZE];
-    int transposedArray[MAX_SIZE][MAX_SIZE];
-    int rows, cols;
+  int a[10][10], transpose[10][10], r, c;
+  printf("Enter rows and columns: ");
+  scanf("%d %d", &r, &c);
 
-    printf("Enter the number of rows (up to %d): ", MAX_SIZE);
-    scanf("%d", &rows);
+  // asssigning elements to the matrix
+  printf("\nEnter matrix elements:\n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("Enter element a%d%d: ", i + 1, j + 1);
+    scanf("%d", &a[i][j]);
+  }
 
-    printf("Enter the number of columns (up to %d): ", MAX_SIZE);
-    scanf("%d", &cols);
+  // printing the matrix a[][]
+  printf("\nEntered matrix: \n");
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    printf("%d  ", a[i][j]);
+    if (j == c - 1)
+    printf("\n");
+  }
 
-    if (rows <= 0 || rows > MAX_SIZE || cols <= 0 || cols > MAX_SIZE) {
-        printf("Invalid size. Exiting the program.\n");
-        return 0;
-    }
+  // computing the transpose
+  for (int i = 0; i < r; ++i)
+  for (int j = 0; j < c; ++j) {
+    transpose[j][i] = a[i][j];
+  }
 
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("Enter element at row %d, column %d: ", i + 1, j + 1);
-            scanf("%d", &array[i][j]);
-        }
-    }
-
-    printf("Original array:\n");
-    printArray(array, rows, cols);
-
-    transposeArray(array, rows, cols, transposedArray);
-
-    printf("Transposed array:\n");
-    printArray(transposedArray, cols, rows);
-
-    return 0;
+  // printing the transpose
+  printf("\nTranspose of the matrix:\n");
+  for (int i = 0; i < c; ++i)
+  for (int j = 0; j < r; ++j) {
+    printf("%d  ", transpose[i][j]);
+    if (j == r - 1)
+    printf("\n");
+  }
+  return 0;
 }

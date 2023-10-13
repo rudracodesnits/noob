@@ -1,58 +1,46 @@
 #include <stdio.h>
 
-#define MAX_SIZE 100
+void main()
+ {
+   int arr1[10], arr2[10], arr3[10];
+   int i,j=0,k=0,n;
+      
+      //printf("\n\nSeparate odd and even integers in separate arrays:\n");
+      //printf("------------------------------------------------------\n");	
 
-void separateOddEven(int array[], int size, int oddArray[], int evenArray[], int *oddSize, int *evenSize) {
-    *oddSize = 0;
-    *evenSize = 0;
+      printf("Input the number of elements to be stored in the array :");
+      scanf("%d",&n);
+   
+      printf("Input %d elements in the array :\n",n);
+      for(i=0;i<n;i++) {
+	      printf("element - %d : ",i);
+	      scanf("%d",&arr1[i]);
+	   }
 
-    for (int i = 0; i < size; i++) {
-        if (array[i] % 2 == 0) {
-            evenArray[*evenSize] = array[i];
-            (*evenSize)++;
-        } else {
-            oddArray[*oddSize] = array[i];
-            (*oddSize)++;
-        }
-    }
+   for(i=0;i<n;i++)
+   {
+	if (arr1[i]%2 == 0)
+	{
+	   arr2[j] = arr1[i];
+	   j++;
+	}
+	else
+	{
+	   arr3[k] = arr1[i];
+	   k++;
+	}
 }
 
-void printArray(int array[], int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
-}
+    printf("\nThe Even elements are : \n");
+    for(i=0;i<j;i++)
+   {
+	printf("%d ",arr2[i]);
+   }
 
-int main() {
-    int array[MAX_SIZE];
-    int oddArray[MAX_SIZE], evenArray[MAX_SIZE];
-    int size, oddSize, evenSize;
-
-    printf("Enter the size of the array (up to %d): ", MAX_SIZE);
-    scanf("%d", &size);
-
-    if (size <= 0 || size > MAX_SIZE) {
-        printf("Invalid size. Exiting the program.\n");
-        return 0;
-    }
-
-    printf("Enter the elements of the array:\n");
-    for (int i = 0; i < size; i++) {
-        printf("Enter element %d: ", i + 1);
-        scanf("%d", &array[i]);
-    }
-
-    separateOddEven(array, size, oddArray, evenArray, &oddSize, &evenSize);
-
-    printf("Original array: ");
-    printArray(array, size);
-
-    printf("Odd array: ");
-    printArray(oddArray, oddSize);
-
-    printf("Even array: ");
-    printArray(evenArray, evenSize);
-
-    return 0;
-}
+    printf("\nThe Odd elements are :\n");
+    for(i=0;i<k;i++)
+   {
+	printf("%d ", arr3[i]);
+   }
+    printf("\n\n");	
+ }

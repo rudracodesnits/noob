@@ -22,7 +22,7 @@ int main() {
     int array[MAX_SIZE];
     int size, n;
 
-    printf("Enter the size of the array (up to %d): ", MAX_SIZE);
+    printf("Enter the size of the array : ");
     scanf("%d", &size);
 
     if (size <= 0 || size > MAX_SIZE) {

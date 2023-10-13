@@ -6,7 +6,7 @@ int main() {
     width = 2 * height - 1;
     mid = width / 2;
     for (i = 0; i < height; i++) {
-        printf("\t\t\t\t\t");
+        printf("\t\t\t");
         for (j = 0; j < width; j++) {
             if (i == height - 1 || j == mid - i || j == mid + i) {
                 printf("*");
